@@ -28,8 +28,10 @@ var loadMap = function (ctx, map) {
     ctx.beginPath();
     ctx.strokeStyle = '#fff';
 
-    // if (map.allNames[i] === 'Coahuila') {
+    // if (map.allNames[i] === 'Zacatecas') {
     //   ctx.strokeStyle = '#00f';
+    // } else if (map.allNames[i] === 'Durango') {
+    //   ctx.strokeStyle = '#0f0';
     // } else {
     //   ctx.strokeStyle = '#fff';
     // }

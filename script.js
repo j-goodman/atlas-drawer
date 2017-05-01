@@ -47,6 +47,9 @@ var loadMap = function (ctx, map) {
       coord = map[map.allNames[i]][j];
       ctx.lineTo((coord.x - offset.x) * scale, (coord.y - offset.y) * scale);
       ctx.stroke();
+      // ctx.font="12px Georgia";
+      // ctx.fillStyle = '#fff';
+      // ctx.fillText(j + ':' + map.allNames[i], (coord.x - offset.x) * scale + Math.random() * 40 - 20, (coord.y - offset.y) * scale + Math.random() * 40 - 20);
     }
 
     coord = map[map.allNames[i]][0];
@@ -56,13 +59,13 @@ var loadMap = function (ctx, map) {
   console.log('Loaded.');
 };
 
-window.onkeydown = function () {
+window.onkeydown = function (event) {
+  var scaleMeter = document.getElementById('scale');
+  var offsetx = document.getElementById('offset-x');
+  var offsety = document.getElementById('offset-y');
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
   setTimeout(function () {
-    var scaleMeter = document.getElementById('scale');
-    var offsetx = document.getElementById('offset-x');
-    var offsety = document.getElementById('offset-y');
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
 
     offset = {
       x: offsetx.value,
@@ -71,5 +74,19 @@ window.onkeydown = function () {
     scale = scaleMeter.value;
 
     loadMap(ctx, map);
-  }, 1000);
+  }, 400);
+  switch (event.keyCode) {
+    case 40: // down
+      offsety.value = parseInt(offsety.value) + 100;
+      break;
+    case 39: // right
+      offsetx.value = parseInt(offsetx.value) + 100;
+      break;
+    case 38: // up
+      offsety.value = parseInt(offsety.value) - 100;
+      break;
+    case 37: // left
+      offsetx.value = parseInt(offsetx.value) - 100;
+      break;
+  }
 };

@@ -3,6 +3,14 @@
   <script src='script.js'></script>
 </head>
 <body>
+  <offsets>
+    <name id='scale-label'></name>
+    <input type='text' id='scale' value='1'>
+    <name id='x-label'></name>
+    <input type='text' id='offset-x' value='0'>
+    <name id='y-label'></name>
+    <input type='text' id='offset-y' value='0'>
+  </offsets>
   <canvas id='canvas' width='1280' height='960'></canvas>
 </body>
 <style media='screen'>
@@ -10,5 +18,13 @@
     background: #000;
     width: 1280px;
     height: 960px;
+  }
+  offsets {
+    position: fixed;
+  }
+  name {
+    color: #fff;
+    font-family: monospace;
+    margin-left: 12px;
   }
 </style>
